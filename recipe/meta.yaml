@@ -1,6 +1,6 @@
 {% set name = "rabbitmq-server" %}
-{% set version = "3.6.9" %}
-{% set sha256 = "012e8efbd0f40c086030803c92fea2e3af37b8d1515a553896fb5c1f3960bc40" %}
+{% set version = "3.6.10" %}
+{% set sha256 = "35903474eaa434433b12cffc82ca7883d803f3b3b2ab34c7b45b33a8bc59d927" %}
 
 package:
   name: {{ name|lower }}
@@ -11,7 +11,6 @@ source:
   url: https://www.rabbitmq.com/releases/{{ name }}/v{{ version }}/{{ name }}-generic-unix-{{ version }}.tar.xz
   sha256: {{ sha256 }}
   patches:
-    - 3a8d7ed.patch  # merges rabbitmq/rabbitmq-server#1192
     - a2f5620.patch  # wrapper to fake RABBITMQ_HOME location
     - f52bca4.patch  # SYS_PREFIX is set to Conda's PREFIX
 
