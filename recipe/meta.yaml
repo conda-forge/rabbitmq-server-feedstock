@@ -1,6 +1,6 @@
 {% set name = "rabbitmq-server" %}
-{% set version = "3.6.15" %}
-{% set sha256 = "04e6a291642f80e87fc892d5e8ea309fb3fab85ebb64a79a70dfe6c6cfde36fb" %}
+{% set version = "3.7.3" %}
+{% set sha256 = "ee793cbe6e9a9fcf465158a78354a6db804edf92ddcf4f9e51256fdcc5dc953f" %}
 
 package:
   name: {{ name|lower }}
