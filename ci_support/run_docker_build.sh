@@ -57,7 +57,9 @@ conda clean --lock
 conda install --yes --quiet conda-forge-build-setup
 source run_conda_forge_build_setup
 
+conda install --yes conda-build=3
 conda build /recipe_root --quiet || exit 1
+conda install --yes conda-build=2
 upload_or_check_non_existence /recipe_root conda-forge --channel=main || exit 1
 
 touch /feedstock_root/build_artefacts/conda-forge-build-done
