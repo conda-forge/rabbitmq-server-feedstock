@@ -18,7 +18,7 @@ mv b/sbin/rabbitmq-script-wrapper sbin
 chmod 755 sbin/rabbitmq-script-wrapper
 
 # Copy files in place.
-cp -avf ebin include plugins sbin ${RABBITMQ_HOME}
+cp -avf ebin escript include plugins priv sbin ${RABBITMQ_HOME}
 
 # man pages
 cp -avf share ${PREFIX}
