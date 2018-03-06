@@ -15,7 +15,7 @@ source:
     - f52bca4.patch  # SYS_PREFIX is set to Conda's PREFIX
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
   no_link:
     - etc/rabbitmq
