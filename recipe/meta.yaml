@@ -1,6 +1,6 @@
 {% set name = "rabbitmq-server" %}
-{% set version = "3.6.15" %}
-{% set sha256 = "04e6a291642f80e87fc892d5e8ea309fb3fab85ebb64a79a70dfe6c6cfde36fb" %}
+{% set version = "3.7.3" %}
+{% set sha256 = "ee793cbe6e9a9fcf465158a78354a6db804edf92ddcf4f9e51256fdcc5dc953f" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.xz
-  url: https://www.rabbitmq.com/releases/{{ name }}/v{{ version }}/{{ name }}-generic-unix-{{ version }}.tar.xz
+  url: https://github.com/rabbitmq/{{ name }}/releases/download/v{{ version }}/{{ name }}-generic-unix-{{ version }}.tar.xz
   sha256: {{ sha256 }}
   patches:
     - a2f5620.patch  # wrapper to fake RABBITMQ_HOME location
@@ -26,7 +26,7 @@ requirements:
     - gettext
 
   run:
-    - erlang
+    - erlang >=19.3,<20.3
 
 test:
   commands:
