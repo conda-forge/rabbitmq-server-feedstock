@@ -18,14 +18,16 @@ high-availability requirements.
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/rabbitmq-server-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/rabbitmq-server-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/rabbitmq-server-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/rabbitmq-server-feedstock)
-Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/rabbitmq-server-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/rabbitmq-server-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/rabbitmq-server-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/rabbitmq-server-feedstock)
+![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/rabbitmq-server/badges/version.svg)](https://anaconda.org/conda-forge/rabbitmq-server)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/rabbitmq-server/badges/downloads.svg)](https://anaconda.org/conda-forge/rabbitmq-server)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-rabbitmq--server-green.svg)](https://anaconda.org/conda-forge/rabbitmq-server) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/rabbitmq-server.svg)](https://anaconda.org/conda-forge/rabbitmq-server) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/rabbitmq-server.svg)](https://anaconda.org/conda-forge/rabbitmq-server) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/rabbitmq-server.svg)](https://anaconda.org/conda-forge/rabbitmq-server) |
 
 Installing rabbitmq-server
 ==========================
