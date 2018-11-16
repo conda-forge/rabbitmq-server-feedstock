@@ -1,6 +1,6 @@
 {% set name = "rabbitmq-server" %}
-{% set version = "3.7.8" %}
-{% set sha256 = "de4b07aa2c95c39660fedaf32941ba4f58bd75121cb7611f40cb504d756dce4d" %}
+{% set version = "3.7.9" %}
+{% set sha256 = "43214e32316ce4eb6a0a0013b897b2a0c7c96d6814ba6bd01ae60032e8c2479f" %}
 
 package:
   name: {{ name|lower }}
@@ -15,7 +15,7 @@ source:
     - f52bca4.patch  # SYS_PREFIX is set to Conda's PREFIX
 
 build:
-  number: 1
+  number: 0
   skip: True  # [win]
   no_link:
     - etc/rabbitmq
