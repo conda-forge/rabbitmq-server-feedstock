@@ -29,10 +29,10 @@ requirements:
 
 test:
   commands:
-    - rabbitmq-server&
-    - sleep 2
-    - rabbitmqctl status
-    - rabbitmqctl stop
+    - rabbitmq-server&  # [linux]
+    - sleep 2  # [linux]
+    - rabbitmqctl status  # [linux]
+    - rabbitmqctl stop  # [linux]
 
 about:
   home: http://www.rabbitmq.com
