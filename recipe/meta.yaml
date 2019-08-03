@@ -31,8 +31,9 @@ test:
   commands:
     - rabbitmq-server&  # [linux]
     - sleep 2  # [linux]
-    - rabbitmqctl status  # [linux]
-    - rabbitmqctl stop  # [linux]
+    - rabbitmqctl start_app  # [linux]   
+    - rabbitmqctl status     # [linux]
+    - rabbitmqctl stop       # [linux]
 
 about:
   home: http://www.rabbitmq.com
