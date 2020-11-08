@@ -28,7 +28,7 @@ requirements:
 
 test:
   commands:
-    - test-rabbitmq.sh  # [linux]
+    - ./test-rabbitmq.sh  # [linux]
 
 about:
   home: https://www.rabbitmq.com
