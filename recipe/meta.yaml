@@ -28,10 +28,7 @@ requirements:
 
 test:
   commands:
-    - rabbitmq-server &  # [linux]
-    - sleep 2  # [linux]
-    - rabbitmqctl status  # [linux]
-    - rabbitmqctl stop  # [linux]
+    - test-rabbitmq.sh  # [linux]
 
 about:
   home: https://www.rabbitmq.com
