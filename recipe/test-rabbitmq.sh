@@ -1,12 +1,13 @@
 #!/bin/bash
 set -e
+trap 'kill $(jobs -p)' SIGINT SIGTERM EXIT
 
 rabbitmq-server &
 
 WAIT=1
 while [ $WAIT -lt 10 ]; do
   sleep 1
-  rabbitmqctl await_startup && break || echo "Waiting for RabbitMQ to start... ($WAIT)"
+  rabbitmqctl await_startup --timeout=5 && break || echo "Waiting for RabbitMQ to start... ($WAIT)"
   let WAIT=WAIT+1
 done
 
@@ -31,3 +32,5 @@ echo
 echo Shutdown:
 rabbitmqctl stop
 wait
+
+trap - EXIT

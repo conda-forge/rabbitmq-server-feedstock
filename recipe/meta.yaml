@@ -27,6 +27,8 @@ requirements:
     - erlang >=21.3,<23
 
 test:
+  files:
+    - test-rabbitmq.sh  # [linux]
   commands:
     - ./test-rabbitmq.sh  # [linux]
 
