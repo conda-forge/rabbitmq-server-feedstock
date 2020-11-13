@@ -1,5 +1,5 @@
 {% set name = "rabbitmq-server" %}
-{% set version = "3.7.16" %}
+{% set version = "3.7.28" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.xz
   url: https://github.com/rabbitmq/{{ name }}/releases/download/v{{ version }}/{{ name }}-generic-unix-{{ version }}.tar.xz
-  sha256: a34011f8ff1682a1601d4b8e0167ad39b91fd8f0fb35b484c41efde9f104ed08
+  sha256: 8cc45ef421323b407eda3fa82975fffd81d9a46235f6314e16855caedacd02cc
   patches:
     - a2f5620.patch  # wrapper to fake RABBITMQ_HOME location
     - f52bca4.patch  # SYS_PREFIX is set to Conda's PREFIX
@@ -23,32 +23,29 @@ build:
 requirements:
   build:
     - gettext
-
   run:
-    - erlang >=20.3,<22
+    - erlang >=21.3,<23
 
 test:
+  files:
+    - test-rabbitmq.sh  # [linux]
   commands:
-    - rabbitmq-server&  # [linux]
-    - sleep 2  # [linux]
-    - rabbitmqctl status  # [linux]
-    - rabbitmqctl stop  # [linux]
+    - ./test-rabbitmq.sh  # [linux]
 
 about:
-  home: http://www.rabbitmq.com
-  license: MPL 1.1
-  license_family: OTHER
+  home: https://www.rabbitmq.com
+  license: MPL-1.1
   license_file: LICENSE
   summary: Open source multi-protocol messaging broker
-
   description: |
-    RabbitMQ is lightweight and easy to deploy on premise and in the cloud. 
-    It supports multiple messaging protocols. RabbitMQ can be deployed in 
-    distributed and federated configurations to meet high-scale, 
+    RabbitMQ is lightweight and easy to deploy on premise and in the cloud.
+    It supports multiple messaging protocols. RabbitMQ can be deployed in
+    distributed and federated configurations to meet high-scale,
     high-availability requirements.
   doc_url: https://www.rabbitmq.com/documentation.html
   dev_url: https://github.com/rabbitmq/rabbitmq-server
 
 extra:
   recipe-maintainers:
+    - anthchirp
     - sodre
