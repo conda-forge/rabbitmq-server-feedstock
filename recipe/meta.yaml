@@ -1,5 +1,5 @@
 {% set name = "rabbitmq-server" %}
-{% set version = "3.7.28" %}
+{% set version = "3.8.3" %}
 
 package:
   name: {{ name|lower }}
@@ -28,9 +28,9 @@ requirements:
 
 test:
   files:
-    - test-rabbitmq.sh  # [linux]
+    - test-rabbitmq.sh
   commands:
-    - ./test-rabbitmq.sh  # [linux]
+    - ./test-rabbitmq.sh
 
 about:
   home: https://www.rabbitmq.com
