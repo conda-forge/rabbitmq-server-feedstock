@@ -10,6 +10,9 @@ cp_envsubst()
 	cat $src | envsubst '${PREFIX}' > $dst
 }
 
+# Export license
+cp -n src/LICENSE .
+
 RABBITMQ_HOME=${PREFIX}/lib/rabbitmq
 mkdir -p ${RABBITMQ_HOME}
 
