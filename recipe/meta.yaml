@@ -24,7 +24,7 @@ requirements:
   build:
     - gettext
   run:
-    - erlang >=21.3,<23
+    - erlang >=21.3,<24
 
 test:
   files:
