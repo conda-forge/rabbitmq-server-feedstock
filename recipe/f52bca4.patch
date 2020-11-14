@@ -1,5 +1,5 @@
 diff --git a/sbin/rabbitmq-defaults b/sbin/rabbitmq-defaults
-index b845f74..95dccce 100755
+index 868678b..42d51d6 100755
 --- a/sbin/rabbitmq-defaults
 +++ b/sbin/rabbitmq-defaults
 @@ -16,7 +16,7 @@
@@ -9,5 +9,5 @@ index b845f74..95dccce 100755
 -SYS_PREFIX=${RABBITMQ_HOME}
 +SYS_PREFIX=${PREFIX}
  
- ### next line will be updated when generating a standalone release
- ERL_DIR=
+ CLEAN_BOOT_FILE=start_clean
+ SASL_BOOT_FILE=start_sasl

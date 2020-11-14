@@ -10,22 +10,27 @@ cp_envsubst()
 	cat $src | envsubst '${PREFIX}' > $dst
 }
 
-RABBITMQ_HOME=$PREFIX/lib/rabbitmq
-mkdir -p $RABBITMQ_HOME
+# Export license
+cp -n src/LICENSE .
 
-# Fix patching level mismatch and mode
-mv b/sbin/rabbitmq-script-wrapper sbin
-chmod 755 sbin/rabbitmq-script-wrapper
+RABBITMQ_HOME=${PREFIX}/lib/rabbitmq
+mkdir -p ${RABBITMQ_HOME}
 
-# Copy files in place.
-cp -avf ebin escript include plugins priv sbin ${RABBITMQ_HOME}
+# Install man pages
+cp -anv src/share ${PREFIX}
+rm -r src/share
 
-# man pages
-cp -avf share ${PREFIX}
+# Add custom wrapper to sources
+cp -n rabbitmq-script-wrapper src/sbin/rabbitmq-script-wrapper
+chmod 755 src/sbin/rabbitmq-script-wrapper
+
+# Install rabbitmq
+cd src
+cp -anv * ${RABBITMQ_HOME}
 
 # Render a few files
-cp_envsubst sbin/rabbitmq-script-wrapper $RABBITMQ_HOME/sbin
-cp_envsubst sbin/rabbitmq-defaults $RABBITMQ_HOME/sbin
+cp_envsubst sbin/rabbitmq-script-wrapper ${RABBITMQ_HOME}/sbin
+cp_envsubst sbin/rabbitmq-defaults ${RABBITMQ_HOME}/sbin
 
 # Create links to main apps
 for app in ${PREFIX}/bin/rabbitmq{ctl,-server,-plugins}; do
