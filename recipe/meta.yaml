@@ -1,5 +1,5 @@
 {% set name = "rabbitmq-server" %}
-{% set version = "3.8.4" %}
+{% set version = "3.8.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/rabbitmq/{{ name }}/releases/download/v{{ version }}/{{ name }}-generic-unix-{{ version }}.tar.xz
-    sha256: 74f47c1249c72af366c697618e6cfd05bea96db3906ac6ff991f355eb93b6b2e
+    sha256: 51f8013881d7965134e8fbba2c23c93d64f9b3279e4eedbcccfb493a5146eac4
     patches:
       - f52bca4.patch  # SYS_PREFIX is set to Conda's PREFIX
     folder: src
@@ -34,7 +34,7 @@ test:
 
 about:
   home: https://www.rabbitmq.com
-  license: MPL-1.1
+  license: MPL-2.0
   license_file: LICENSE
   summary: Open source multi-protocol messaging broker
   description: |

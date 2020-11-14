@@ -3,7 +3,7 @@ About rabbitmq-server
 
 Home: https://www.rabbitmq.com
 
-Package license: MPL-1.1
+Package license: MPL-2.0
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/rabbitmq-server-feedstock/blob/master/LICENSE.txt)
 
