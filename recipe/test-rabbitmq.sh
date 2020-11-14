@@ -2,6 +2,10 @@
 set -e
 trap 'kill $(jobs -p)' SIGINT SIGTERM EXIT
 
+# Remove a conda build environment variable that will
+# otherwise be picked up as RabbitMQ configuration file
+unset CONFIG_FILE
+
 rabbitmq-server &
 
 WAIT=1
