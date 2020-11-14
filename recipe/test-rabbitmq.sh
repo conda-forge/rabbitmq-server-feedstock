@@ -2,6 +2,11 @@
 set -e
 trap 'kill $(jobs -p)' SIGINT SIGTERM EXIT
 
+echo ------------------------------------------
+echo Environment:
+set
+echo ------------------------------------------
+
 rabbitmq-server &
 
 WAIT=1
