@@ -32,8 +32,8 @@ cp -anv * ${RABBITMQ_HOME}
 cp_envsubst sbin/rabbitmq-script-wrapper ${RABBITMQ_HOME}/sbin
 cp_envsubst sbin/rabbitmq-defaults ${RABBITMQ_HOME}/sbin
 
-# Create links to main apps
-for app in ${PREFIX}/bin/rabbitmq{ctl,-server,-plugins}; do
+# Create links to included commands
+for app in ${PREFIX}/bin/rabbitmq{ctl,-defaults,-diagnostics,-enc,-plugins,-queues,-script-wrapper,-server,-upgrade}; do
 	ln -s ../lib/rabbitmq/sbin/rabbitmq-script-wrapper $app
 done
 
