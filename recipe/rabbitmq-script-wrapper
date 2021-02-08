@@ -15,15 +15,15 @@
 ##  Copyright (c) 2007-2014 GoPivotal, Inc.  All rights reserved.
 ##
 
-cd ${PREFIX}/var/lib/rabbitmq
+cd "${PREFIX}/var/lib/rabbitmq"
 
 SCRIPT=`basename $0`
 
 if [ "$SCRIPT" = "rabbitmq-server" ] ; then
-    exec ${PREFIX}/lib/rabbitmq/sbin/rabbitmq-server $*
+    exec "${PREFIX}/lib/rabbitmq/sbin/rabbitmq-server" "$@"
 else
     if [ -f $PWD/.erlang.cookie ] ; then
         export HOME=.
     fi
-    exec ${PREFIX}/lib/rabbitmq/sbin/${SCRIPT} $*
+    exec "${PREFIX}/lib/rabbitmq/sbin/${SCRIPT}" "$@"
 fi
