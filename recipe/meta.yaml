@@ -14,7 +14,7 @@ source:
   - path: rabbitmq-script-wrapper  # wrapper to fake RABBITMQ_HOME location
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
   no_link:
     - etc/rabbitmq
@@ -25,6 +25,7 @@ requirements:
     - gettext
   run:
     - erlang >=23.3,<25
+    - socat
 
 test:
   files:
