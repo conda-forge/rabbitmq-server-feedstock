@@ -180,5 +180,6 @@ Feedstock Maintainers
 =====================
 
 * [@anthchirp](https://github.com/anthchirp/)
+* [@rjgildea](https://github.com/rjgildea/)
 * [@sodre](https://github.com/sodre/)
 
