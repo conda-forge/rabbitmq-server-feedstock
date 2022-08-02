@@ -1,5 +1,5 @@
 {% set name = "rabbitmq-server" %}
-{% set version = "3.10.6" %}
+{% set version = "3.10.7" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/rabbitmq/{{ name }}/releases/download/v{{ version }}/{{ name }}-generic-unix-{{ version }}.tar.xz
-    sha256: 11651575d9c1b6b1803a41b5a37ad437abfb883fb7415500f98695f99943a83d
+    sha256: fcb424deb300635086f3bf554063af654bb58f2aa4e84126f514acc00439f5c2
     patches:
       - f52bca4.patch  # SYS_PREFIX is set to Conda's PREFIX
     folder: src
