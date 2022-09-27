@@ -24,7 +24,7 @@ requirements:
   build:
     - gettext
   run:
-    - erlang >=23.3,<26
+    - erlang >=25.0,<26
     - socat
 
 test:
