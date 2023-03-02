@@ -1,11 +1,11 @@
-About rabbitmq-server
-=====================
+About rabbitmq-server-feedstock
+===============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/rabbitmq-server-feedstock/blob/main/LICENSE.txt)
 
 Home: https://www.rabbitmq.com
 
 Package license: MPL-2.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/rabbitmq-server-feedstock/blob/main/LICENSE.txt)
 
 Summary: Open source multi-protocol messaging broker
 
