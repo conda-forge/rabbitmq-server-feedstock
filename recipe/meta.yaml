@@ -31,7 +31,9 @@ test:
   files:
     - test-rabbitmq.sh
   commands:
-    - ./test-rabbitmq.sh
+    - which rabbitmqctl
+    - which rabbitmq-server
+    - ./test-rabbitmq.sh  # [build_platform == target_platform]
 
 about:
   home: https://www.rabbitmq.com
