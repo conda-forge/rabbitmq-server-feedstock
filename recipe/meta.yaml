@@ -48,6 +48,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - danielhollas
     - ndevenish
     - rjgildea
     - anthchirp
