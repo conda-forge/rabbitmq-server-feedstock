@@ -31,7 +31,8 @@ echo Status:
 rabbitmqctl status
 echo
 echo Node health check:
-rabbitmqctl node_health_check
+# TODO: Health-check
+# https://www.rabbitmq.com/docs/monitoring#health-checks
 echo
 echo Shutdown:
 rabbitmqctl stop
