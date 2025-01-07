@@ -36,7 +36,10 @@ test:
 about:
   home: https://www.rabbitmq.com
   license: MPL-2.0
-  license_file: LICENSE
+  license_file: 
+    - src/LICENSE
+    - src/LICENSE-APACHE2
+    - src/LICENSE-MPL-RabbitMQ
   summary: Open source multi-protocol messaging broker
   description: |
     RabbitMQ is lightweight and easy to deploy on premise and in the cloud.
