@@ -1,5 +1,5 @@
 {% set name = "rabbitmq-server" %}
-{% set version = "4.0.4" %}
+{% set version = "4.0.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/rabbitmq/{{ name }}/releases/download/v{{ version }}/{{ name }}-generic-unix-{{ version }}.tar.xz
-    sha256: b024b75935bc9b30597b3ea5c5d3846b8a8f887e0f1d5703f00974ea481342f3
+    sha256: 2027f93b275454295d869e637e09f5cc690603d1a2e1c8273780a84bdaf57827
     patches:
       - f52bca4.patch  # SYS_PREFIX is set to Conda's PREFIX
     folder: src
@@ -24,7 +24,7 @@ requirements:
   build:
     - gettext
   run:
-    - erlang >=26.2,<27.2
+    - erlang >=26.2,<=27.2
     - socat
 
 test:
@@ -36,7 +36,10 @@ test:
 about:
   home: https://www.rabbitmq.com
   license: MPL-2.0
-  license_file: LICENSE
+  license_file: 
+    - src/LICENSE
+    - src/LICENSE-APACHE2
+    - src/LICENSE-MPL-RabbitMQ
   summary: Open source multi-protocol messaging broker
   description: |
     RabbitMQ is lightweight and easy to deploy on premise and in the cloud.
