@@ -1,5 +1,5 @@
 {% set name = "rabbitmq-server" %}
-{% set version = "4.0.5" %}
+{% set version = "3.10.25" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   - url: https://github.com/rabbitmq/{{ name }}/releases/download/v{{ version }}/{{ name }}-generic-unix-{{ version }}.tar.xz
-    sha256: 2027f93b275454295d869e637e09f5cc690603d1a2e1c8273780a84bdaf57827
+    sha256: 5a915280dc6d521de9403a07e42d66ea9e3bf7d24880b356d395b950e6dcb3ca
     patches:
       - f52bca4.patch  # SYS_PREFIX is set to Conda's PREFIX
     folder: src
   - path: rabbitmq-script-wrapper  # wrapper to fake RABBITMQ_HOME location
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win]
   no_link:
     - etc/rabbitmq
@@ -24,7 +24,7 @@ requirements:
   build:
     - gettext
   run:
-    - erlang >=26.2,<=27.2
+    - erlang >=24.3.4.8,<=25.3
     - socat
 
 test:
