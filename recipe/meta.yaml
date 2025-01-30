@@ -14,7 +14,7 @@ source:
   - path: rabbitmq-script-wrapper  # wrapper to fake RABBITMQ_HOME location
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win]
   no_link:
     - etc/rabbitmq
