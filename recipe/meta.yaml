@@ -7,8 +7,7 @@ package:
 
 source:
   - url: https://github.com/rabbitmq/{{ name }}/releases/download/v{{ version }}/{{ name }}-generic-unix-{{ version }}.tar.xz
-    sha256: 361be858e59e56c55d8f45b4d92b056a1c974d92de257357333d2c0740b99616
-
+    sha256: 011f489260d6b9d1976451ddad7b3307d14bdea320e4d19ac0960beda8422126
     patches:
       - f52bca4.patch  # SYS_PREFIX is set to Conda's PREFIX
     folder: src
