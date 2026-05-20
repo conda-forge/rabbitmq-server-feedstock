@@ -23,18 +23,21 @@ jobs:
       matrix:
         include:
           - CONFIG: linux_64_
+            STORE_BUILD_ARTIFACTS: True
             SHORT_CONFIG: linux_64_
             UPLOAD_PACKAGES: True
             os: ubuntu
             runs_on: ['ubuntu-latest']
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
           - CONFIG: linux_aarch64_
+            STORE_BUILD_ARTIFACTS: True
             SHORT_CONFIG: linux_aarch64_
             UPLOAD_PACKAGES: True
             os: ubuntu
             runs_on: ['ubuntu-24.04-arm']
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-aarch64:alma9
           - CONFIG: linux_ppc64le_
+            STORE_BUILD_ARTIFACTS: True
             SHORT_CONFIG: linux_ppc64le_
             UPLOAD_PACKAGES: True
             os: ubuntu
@@ -112,7 +115,7 @@ jobs:
       env:
         # default value; make it explicit, as it needs to match with artefact
         # generation below. Not configurable for now, can be revisited later
-        CONDA_BLD_DIR: C:\bld
+        CONDA_BLD_PATH: C:\bld
         MINIFORGE_HOME: ${{ contains(runner.arch, 'ARM') && 'C' || 'D' }}:\Miniforge
         PYTHONUNBUFFERED: 1
         CONFIG: ${{ matrix.CONFIG }}
@@ -149,7 +152,7 @@ jobs:
       id: prepare-artifacts
       shell: bash
       # we do not want to trigger artefact creation if the build was cancelled
-      if: ${{ always() && steps.determine-status.outputs.status != 'cancelled' }}
+      if: ${{ always() && steps.determine-status.outputs.status != 'cancelled' && matrix.STORE_BUILD_ARTIFACTS }}
       env:
         CI: github_actions
         CONFIG: ${{ matrix.CONFIG }}
@@ -161,15 +164,15 @@ jobs:
         export FEEDSTOCK_NAME="$(basename $GITHUB_REPOSITORY)"
         export ARTIFACT_STAGING_DIR="$GITHUB_WORKSPACE"
         if [ $OS == "macos" ]; then
-          export CONDA_BLD_DIR="${MINIFORGE_HOME:-${HOME}/miniforge3}/conda-bld"
+          export CONDA_BLD_PATH="${MINIFORGE_HOME:-${HOME}/miniforge3}/conda-bld"
         elif [ $OS == "windows" ]; then
           # this needs to be consistent with build step, see above
-          export CONDA_BLD_DIR="C:\\bld"
+          export CONDA_BLD_PATH="C:\\bld"
         else
-          export CONDA_BLD_DIR="build_artifacts"
+          export CONDA_BLD_PATH="build_artifacts"
         fi
-        # Archive everything in CONDA_BLD_DIR except environments
-        # Archive the CONDA_BLD_DIR environments only when the job fails
+        # Archive everything in CONDA_BLD_PATH except environments
+        # Archive the CONDA_BLD_PATH environments only when the job fails
         # Use different prefix for successful and failed build artifacts
         # so random failures don't prevent rebuilds from creating artifacts.
         if [ $JOB_STATUS == "failure" ]; then
