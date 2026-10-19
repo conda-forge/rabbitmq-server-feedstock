@@ -22,7 +22,7 @@ build:
 
 requirements:
   build:
-    - {{ stdlib('c') }}
+    - {{ stdlib('c') }}  # [osx]
     - gettext
   run:
     - erlang >=27,<30
